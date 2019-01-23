@@ -1,4 +1,4 @@
-import {Notice, Loading} from 'iview';
+import {Notice} from 'iview';
 import 'iview/dist/styles/iview.css';
 
 const Utils = {
@@ -15,15 +15,12 @@ const Utils = {
       let messageType = "error";
       let title = requestDesc;
       let desc = "";
-      Loading.start();
       if (res.status === 200) {
-        Loading.finish();
         if ( res.data.status === 200) {
           messageType = "success";
           desc = title + "成功！";
           resolve(res.data);
         } else {
-          Loading.error();
 
           title += "失败";
 
@@ -33,7 +30,6 @@ const Utils = {
           reject(new Error(desc));
         }
       } else {
-        Loading.error();
         title += "异常";
         desc = requestDesc + "接口调用异常";
         reject(new Error(desc));

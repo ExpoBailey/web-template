@@ -15,6 +15,7 @@
 </template>
 <script>
   import vTitle from '@/components/Title'
+  import Utils from '@/utils/index'
 
   export default {
 
@@ -36,6 +37,7 @@
     methods: {
       open() {
         let vm = this;
+		Utils.alertNotice("info", "加载页面")
         vm.$router.push({name: "hello", params: { id: vm.msg}})
       }
     }
